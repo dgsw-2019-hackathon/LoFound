@@ -1,20 +1,38 @@
 import React, { Component } from 'react';
 
-class login extends Component {
+class Login extends Component {
+    state= {
+        userId: "",
+        password: ""
+    }
+
+    handleChange = (e) => {
+        let nextState = {};
+        nextState[e.target.name] = e.target.value;
+        this.setState(nextState);
+    }
+
     render() {
         return (
-        <form>
-            <h2> Please sign in </h2>
-            <label for="inputEmail"> Email address</label>
-            <input type="email" id="inputEmail"placeholder="Email address" required autofocus />
-            
-            <label for="inputPassword"> Password</label>
-            <input type="password" id="inputPassword" placeholder="Password" required />
-            
-            <button type="button"> Sign in </button>
-        </form>
+            <div>
+                <label> ID</label>
+                <input  type="text"
+                        name="userId"
+                        placeholder="User Id"
+                        value={this.state.userId}
+                        onChange={this.handleChange}/>
+                
+                <label> Password</label>
+                <input  type="password"
+                        name="password"
+                        placeholder="Password"
+                        value={this.state.password}
+                        onChange={this.handleChange}/>
+                
+                <button type="button"> Sign in </button>
+            </div>
         );
     }
 }
 
-export default login;
+export default Login;
