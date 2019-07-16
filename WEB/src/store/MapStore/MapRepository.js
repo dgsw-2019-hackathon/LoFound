@@ -16,6 +16,14 @@ class MapRepository {
           console.log(err);
       }
   }
+
+  async getPlaceId(placeIdx){
+      try {
+          await axios.get(`http://192.168.137.1:7777/map/placeId?address=${placeIdx}`)
+      } catch (err) {
+          console.log(err);
+      }
+  }
 }
 
 export default new MapRepository();

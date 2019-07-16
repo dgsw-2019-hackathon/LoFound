@@ -17,37 +17,15 @@ class Find extends Component {
         await map.getPollygon();
     }
 
-    // bermudaTriangle = (triangleCoords, google) => {
-    //     google.maps.map(e =>{
-    //             return (
-    //                 <Map 
-    //                 google={google}
-    //                 style={{width: '100%', height: '100%', position: 'relative'}}
-    //                 zoom={8}
-    //                 initialCenter={{
-    //                 lat: 37,
-    //                 lng: 126
-    //                }}
-    //                >
-    //                     <Polygon
-    //                         paths={triangleCoords}
-    //                         strokeColor="#FF0000"
-    //                         strokeOpacity={0.8}
-    //                         strokeWeight={2}
-    //                         fillColor='#FF0000'
-    //                         fillOpacity={0.35}
-    //                     />
-    //                 </Map>
-    //             )
-    //         }
-    //     )
-    // }
-
     render() {
-        const triangleCoords = [
-            {lat: 35, lng: 128},
-            {lat: 35, lng: 129},
-          ];
+        // const triangleCoords = [
+        //     {lat: 35, lng: 128},
+        //     {lat: 35, lng: 129},
+        //   ];
+
+        const { pollygon } = this.props.store.map.pollygons;
+        console.log(pollygon);
+        const triangleCoords = [];
           console.log(this.props.google);
         return (
             <div>
@@ -62,8 +40,8 @@ class Find extends Component {
                     lng: 126
                 }}
                 >
-                {/* {
-                    this.props.google.maps.Polygon.map(e => {
+                {
+                    this.props.store.map.pollygons.map(e => {
                         return(
                             <Polygon
                                 paths={triangleCoords}
@@ -75,17 +53,16 @@ class Find extends Component {
                             />
                         )
                     })
-                } */}
-                 <Polygon
+                }
+                 {/* <Polygon
                                 paths={triangleCoords}
                                 strokeColor="#FF0000"
                                 strokeOpacity={0.8}
                                 strokeWeight={2}
                                 fillColor='#FF0000'
                                 fillOpacity={0.35}
-                            />
+                            /> */}
                     </Map>
-                {/* {this.bermudaTriangle(triangleCoords, this.props.google)} */}
             </div>
         );
     }
