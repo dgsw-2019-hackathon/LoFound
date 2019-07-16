@@ -19,9 +19,9 @@ class MapStore {
        }
    }
 
-   @action async getPollygon(){
+   @action async getPollygon(placeIdx){
        try {
-           const data = await MapRepository.getPollygon(this.placeId);
+           const data = await MapRepository.getPollygon(placeIdx);
            this.pollygons = data.data.data;
            console.log(data);
            console.log(this.pollygons);

@@ -7,7 +7,31 @@ class Shop extends Component {
             <div className="Shop">
                 <p className="Shop--storeTitle">로습득 스토어</p>
                 <div className="Shop--productList">
-                    <p>안녕하세요 저는 정채연을 좋아하는 평범한 고등학생입니다</p>
+                    <div className="shop--productList--first">
+                        <div>양파</div>
+                        <div>돼지고기</div>
+                        <div>양파</div>
+                        <div>양파</div>
+                    </div>
+                    <div className="shop--productList--sec">
+                        <div>양파</div>
+                        <div>돼지고기</div>
+                        <div>양파</div>
+                        <div>양파</div>
+                    </div>
+                    <div className="shop--productList--first">
+                        <div>양파</div>
+                        <div>돼지고기</div>
+                        <div>양파</div>
+                        <div>양파</div>
+                    </div>
+                    <div className="shop--productList--first">
+                        <div>양파</div>
+                        <div>돼지고기</div>
+                        <div>양파</div>
+                        <div>양파</div>
+                    </div>
+
                 </div>
             </div>
         );
