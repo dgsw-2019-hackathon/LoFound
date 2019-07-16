@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { autobind } from 'auto-bind';
+import { autobind } from 'core-decorators';
 
 @autobind
-class PropertyStore extends Component {
+class PropertyStore {
     render() {
         return (
             <div>

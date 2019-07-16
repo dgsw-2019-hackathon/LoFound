@@ -1,19 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'mobx-react';
 import store from './store';
-import Header from './components/Header';
+import Root from './Root';
 
 ReactDOM.render(
-<Provider>
-<App />
+<Provider store={store}>
+    <Root/>
 </Provider>,
-/* <Provider store={store}>
-    <Header />
-  </Provider>, */
 document.getElementById('root')
 );
 
