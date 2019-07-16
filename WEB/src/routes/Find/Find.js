@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
-import { Map, Polygon, GoogleApiWrapper } from 'google-maps-react';
+import { Map, GoogleApiWrapper, Polygon } from 'google-maps-react';
 import { inject, observer } from 'mobx-react';
 import PropertyList from './LostProperty/PropertyList';
+import GoogleApiMap from 'google-map-react';
+import { runInThisContext } from 'vm';
+import { map } from 'rsvp';
 
 @inject('store')
 @observer
@@ -89,5 +92,5 @@ class Find extends Component {
 }
 
 export default GoogleApiWrapper({
-    apiKey: ('AIzaSyAjai91TopNgOQxu2Rq0ssPjAbbY5FZBZQ')
-  })(Find)
+  apiKey: ('AIzaSyAjai91TopNgOQxu2Rq0ssPjAbbY5FZBZQ')
+})(Find)
