@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Header from './components/Header';
 import Login from './routes/Login/Login';
 import Register from './routes/Register/Register';
+import Find from './routes/Find/Find';
 
 class App extends Component {
   render() {
@@ -13,6 +14,7 @@ class App extends Component {
           <Switch>
             <Route exact path ="/" component={Login}/>
             <Route path="/register" component={Register}/>
+            <Route path="/find" component={Find}/>
           </Switch>
         </div>
       </Router>
