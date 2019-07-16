@@ -4,6 +4,8 @@ exports.validateLost = (object) => {
   const schema = joi.object().keys({
     title: joi.string().required(),
     content: joi.string().required(),
+    startPlaceId: joi.string().required(),
+    endPlaceId: joi.string().required(),
     picture: joi.array(),
   });
 
