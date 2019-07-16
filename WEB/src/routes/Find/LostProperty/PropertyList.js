@@ -9,6 +9,7 @@ class PropertyList extends Component {
 
     async componentDidMount(){
         let {data: property } = await axios.get('http://192.168.137.1:7777/losts/');
+        console.log(property);
         this.setState({property});
     }
 
