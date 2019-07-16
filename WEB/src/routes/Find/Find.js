@@ -11,6 +11,7 @@ class Find extends Component {
         this.state=[];
       }
 
+      //
     async componentDidMount(){
         const { map } = this.props.store;
         await map.getMap();
@@ -29,7 +30,9 @@ class Find extends Component {
           console.log(this.props.google);
         return (
             <div>
-                안녕 파인드
+                <div>
+                    <input type="text"/>
+                </div>
                 <PropertyList/>
                 <Map 
                     google={this.props.google}
