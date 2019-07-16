@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap');
+
+*{
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+
+input,button {
+    width: 340px;
+    height: 50px;
+    font-size: 1.5rem;
+}
+
+.loginForm {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 800px;
+    background: whitesmoke;
+
+    button {
+        background-color: rgba( 12, 35, 245, 0.5 );
+        box-shadow: 5px 5px 3px #888888;
+        transition: all 0.4s;
+        -webkit-transition: all 0.4s;
+        -o-transition: all 0.4s;
+        -moz-transition: all 0.4s;
+
+        &:hover{
+            cursor: pointer;            
+        }
+    }
+
+    input {
+        border-radius: 7px;
+        box-shadow: 3px 3px 2px #888888;
+    }
+}
+
+

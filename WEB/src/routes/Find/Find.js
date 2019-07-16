@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Map, Polygon, GoogleApiWrapper } from 'google-maps-react';
 import { inject, observer } from 'mobx-react';
+import PropertyList from './LostProperty/PropertyList';
 
 @inject('store')
 @observer
@@ -51,7 +52,8 @@ class Find extends Component {
         return (
             <div>
                 안녕 파인드
-                <Map
+                <PropertyList/>
+                <Map 
                     google={this.props.google}
                     style={{width: '100%', height: '100%', position: 'relative'}}
                     zoom={8}

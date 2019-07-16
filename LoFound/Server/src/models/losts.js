@@ -22,6 +22,16 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING(500),
       allowNull: false,
     },
+    startPlaceId: {
+      field: 'startPlaceId',
+      type: DataTypes.STRING(100),
+      allowNull: false,
+    },
+    endPlaceId: {
+      field: 'endPlaceId',
+      type: DataTypes.STRING(100),
+      allowNull: false,
+    },
     isCompleted: {
       field: 'iscompleted',
       type: DataTypes.BOOLEAN,

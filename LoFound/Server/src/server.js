@@ -6,6 +6,7 @@ const Router = require('koa-router');
 const Body = require('koa-body')({ multipart: true });
 const Http = require('http');
 const colors = require('colors');
+const static = require('koa-static');
 const api = require('./api');
 
 const port = 7777;
@@ -20,6 +21,9 @@ app.use(Body);
 
 // API router
 router.use(api.routes());
+
+// Public
+app.use(static('./public'));
 
 // router init
 app.use(router.routes());
