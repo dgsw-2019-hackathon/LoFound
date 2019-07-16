@@ -5,14 +5,7 @@ import PropertyItem from './PropertyItem';
 class PropertyList extends Component {
 
     state = {
-        property: [
-            {
-                idx: 0,
-                title: '2',
-                memberId: '3',
-                content: "4",
-            }
-        ],
+        property: [],
     };
 
     async componentDidMount(){
@@ -24,27 +17,15 @@ class PropertyList extends Component {
             headers: { 'x-access-token': localStorage.getItem('userInfo')}
         })
         .then((res) => {
-            res = JSON.stringify(res);
-            console.log(res);
-            console.log(res.idx);
-            console.log(res.title);
-            console.log(res.memberId);
-            console.log(res.content);
             const { property } = this.state;
-            this.setState({
-                property: property.concat({ idx: res.idx,
-                                            title: res.title,
-                                            memberId: res.memberId,
-                                            content: res.content})
-            });
-            console.log(property+"z");
-        })
+                this.setState({
+                    property: Object.assign(property, res.data.data),
+                })
+            }); 
     }
 
     render() {
         const { property } = this.state;
-        console.log(property+"3번쨰");
-        console.log(property.idx+ "4번째");
 
         if(property.length > 0)
         {
