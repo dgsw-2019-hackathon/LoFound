@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import PropertyItem from './PropertyItem';
 
 class PropertyList extends Component {
 
     state = {
-        property: []
+        property: [],
     };
 
     componentDidMount(){
@@ -28,12 +29,7 @@ class PropertyList extends Component {
         {
             return property.map(property => {
                 return (
-                    <div key = {property.idx}>
-                        <p>member: {property.memberId}</p>
-                        <p>title: {property.title}</p>
-                        <img src={property.url} alt="init" />
-                        <p>content: {property.content}</p>
-                    </div>
+                    <PropertyItem property={property}/>
                 );
             });
         } else {

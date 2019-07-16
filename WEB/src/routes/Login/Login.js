@@ -23,7 +23,13 @@ class Login extends Component {
               id,
               pw})
             .then((res) => {
-                console.log(res);
+                console.log(res.data.token);
+                localStorage.setItem(
+                    "userInfo",
+                    JSON.stringify({
+                        token: res.data.token
+                    })
+                );
             })
             .catch((err) => {
                 console.log(err);
