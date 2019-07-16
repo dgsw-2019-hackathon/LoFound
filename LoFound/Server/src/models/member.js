@@ -27,6 +27,12 @@ module.exports = (sequelize, DataTypes) => {
     timestamps: false,
   });
 
+  Member.associate = (models) => {
+    models.member.hasOne(models.losts, {
+      forignKey: 'memberId'
+    });
+  }
+
   Member.getMemberLogin = (id, pw) => Member.findOne({
     where: {
       id,

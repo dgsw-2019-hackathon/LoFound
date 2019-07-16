@@ -25,8 +25,8 @@ exports.login = async (ctx) => {
     return;
   }
 
-  const token = await tokenLib.createToken(memberResult.id, memberResult.auth);
-  const refreshToken = await tokenLib.createRefreshToken(memberResult.id, memberResult.auth);
+  const token = await tokenLib.createToken(memberResult.id);
+  const refreshToken = await tokenLib.createRefreshToken(memberResult.id);
 
   ctx.status = 200;
   ctx.body = {
