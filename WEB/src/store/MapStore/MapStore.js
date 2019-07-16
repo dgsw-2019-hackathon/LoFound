@@ -7,7 +7,7 @@ class MapStore {
     @observable maps = [];
     @observable pollygons = [];
 
-   @action getMap(){
+   @action async getMap(){
        try {
            const data = await MapRepository.getMap();
            this.maps = data.data.data;
@@ -16,7 +16,7 @@ class MapStore {
        }
    }
 
-   @action getPollygon(){
+   @action async getPollygon(){
        try {
            const data = await MapRepository.getPollygon();
            this.pollygons = data.data.data;
