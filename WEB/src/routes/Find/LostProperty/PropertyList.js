@@ -18,6 +18,7 @@ class PropertyList extends Component {
         })
         .then((res) => {
             const { property } = this.state;
+            console.log(res.data.data+"이거");
                 this.setState({
                     property: Object.assign(property, res.data.data),
                 })

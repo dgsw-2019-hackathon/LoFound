@@ -28,6 +28,7 @@ class Login extends Component {
           "userInfo",
           res.data.token
         );
+        console.log(res.data.token);
       })
       .catch((err) => {
         console.log(err);
