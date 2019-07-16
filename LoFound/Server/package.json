@@ -1,0 +1,21 @@
+{
+  "name": "LoFound-Server",
+  "version": "1.0.0",
+  "main": "src/server.js",
+  "license": "MIT",
+  "dependencies": {
+    "@google/maps": "^0.5.5",
+    "change-object-case": "^0.2.0",
+    "dotenv": "^8.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "koa": "^2.7.0",
+    "koa-body": "^4.1.0",
+    "koa-cors": "^0.0.16",
+    "koa-router": "^7.4.0",
+    "koa-static": "^5.0.0",
+    "mysql2": "^1.6.5",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.4",
+    "sequelize": "^5.10.1"
+  }
+}
