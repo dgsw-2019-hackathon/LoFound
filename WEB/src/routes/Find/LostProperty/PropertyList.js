@@ -1,39 +1,37 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import PropertyItem from './PropertyItem';
 
 class PropertyList extends Component {
 
     state = {
-        property: []
+        property: [],
     };
 
-    componentDidMount(){
-        console.log("1");
-        this.getProperty();    
-        console.log("2");
+    async componentDidMount(){
+        this.getProperty();
     }
 
     getProperty = async () => {
-        const property = await axios.get('http://192.168.137.1:7777/losts/');
-        console.log(property+"앙");
-        this.setState({property});
+        await axios.get('http://192.168.137.1:7777/losts/', {
+            headers: { 'x-access-token': localStorage.getItem('userInfo')}
+        })
+        .then((res) => {
+            const { property } = this.state;
+                this.setState({
+                    property: Object.assign(property, res.data.data),
+                })
+            }); 
     }
 
     render() {
         const { property } = this.state;
-        console.log(property+"3번쨰");
-        console.log(property.idx+ "4번째");
 
         if(property.length > 0)
         {
             return property.map(property => {
                 return (
-                    <div key = {property.idx}>
-                        <p>member: {property.memberId}</p>
-                        <p>title: {property.title}</p>
-                        <img src={property.url} alt="init" />
-                        <p>content: {property.content}</p>
-                    </div>
+                    <PropertyItem property={property}/>
                 );
             });
         } else {

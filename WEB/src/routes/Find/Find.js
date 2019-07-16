@@ -1,54 +1,38 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import { Map, Polygon, GoogleApiWrapper } from 'google-maps-react';
+import { inject, observer } from 'mobx-react';
 import PropertyList from './LostProperty/PropertyList';
 
+@inject('store')
+@observer
 class Find extends Component {
+    constructor(props) {
+        super(props);
+        this.state=[];
+      }
 
+      //
     async componentDidMount(){
-        try {
-            await axios.get(`https://maps.googleapis.com/maps/api/js?key=AIzaSyAjai91TopNgOQxu2Rq0ssPjAbbY5FZBZQ&callback=initMap`).then(res => {console.log(res)});
-        } catch (err) {
-            console.log(err);
-        }
-    }
-
-    bermudaTriangle = (triangleCoords, google) => {
-        // google.map(e =>{
-        //         return (
-        //             <Polygon
-        //                 paths={triangleCoords}
-        //                 strokeColor="#FF0000"
-        //                 strokeOpacity={0.8}
-        //                 strokeWeight={2}
-        //                 fillColor='#FF0000'
-        //                 fillOpacity={0.35}
-        //             />
-        //         )
-        //     }
-        // )
-        triangleCoords.forEach(e => {
-            return(
-                <Polygon
-                    paths={triangleCoords[e]}
-                    strokeColor="#FF0000"
-                    strokeOpacity={0.8}
-                    strokeWeight={2}
-                    fillColor='#FF0000'
-                    fillOpacity={0.35}
-                />
-            )
-        });
+        const { map } = this.props.store;
+        await map.getMap();
+        await map.getPollygon();
     }
 
     render() {
-        const triangleCoords = [
-            {lat: 35, lng: 128},
-            {lat: 35, lng: 129},
-          ];
+        // const triangleCoords = [
+        //     {lat: 35, lng: 128},
+        //     {lat: 35, lng: 129},
+        //   ];
 
+        const { pollygon } = this.props.store.map.pollygons;
+        console.log(pollygon);
+        const triangleCoords = [];
+          console.log(this.props.google);
         return (
             <div>
+                <div>
+                    <input type="text"/>
+                </div>
                 <PropertyList/>
                 <Map 
                     google={this.props.google}
@@ -57,18 +41,31 @@ class Find extends Component {
                     initialCenter={{
                     lat: 37,
                     lng: 126
-                   }}
-                    >
-                    <Polygon
-                        paths={triangleCoords}
-                        strokeColor="#FF0000"
-                        strokeOpacity={0.8}
-                        strokeWeight={2}
-                        fillColor='#FF0000'
-                        fillOpacity={0.35}
-                />
-                    {/* {this.bermudaTriangle(triangleCoords, this.props.google)} */}
-                </Map>
+                }}
+                >
+                {
+                    this.props.store.map.pollygons.map(e => {
+                        return(
+                            <Polygon
+                                paths={triangleCoords}
+                                strokeColor="#FF0000"
+                                strokeOpacity={0.8}
+                                strokeWeight={2}
+                                fillColor='#FF0000'
+                                fillOpacity={0.35}
+                            />
+                        )
+                    })
+                }
+                 {/* <Polygon
+                                paths={triangleCoords}
+                                strokeColor="#FF0000"
+                                strokeOpacity={0.8}
+                                strokeWeight={2}
+                                fillColor='#FF0000'
+                                fillOpacity={0.35}
+                            /> */}
+                    </Map>
             </div>
         );
     }
