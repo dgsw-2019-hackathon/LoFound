@@ -1,16 +1,11 @@
 import React from 'react';
-import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
+// "https://maps.googleapis.com/maps/api/js?key=AIzaSyAjai91TopNgOQxu2Rq0ssPjAbbY5FZBZQ&callback=initMap"
 
 const Find = () => {
     return (
-        <Map
-            google={this.props.google}
-            zoom={8}
-            //style={mapStyles}
-            initialCenter={{ lat: 47.444, lng: -122.176}}
-        >
-            <Marker position={{ lat: 48.00, lng: -122.00}}/>
-        </Map>
+        <div>
+            
+        </div>
     );
 };
 
