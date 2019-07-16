@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 class PropertyItem extends Component {
     render() {
-        console.log(this.props+"헤이");
         const {property} = this.props; 
 
         return (

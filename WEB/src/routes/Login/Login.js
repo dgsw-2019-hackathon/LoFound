@@ -35,8 +35,8 @@ class Login extends Component {
 
     render() {
         return ( 
-          <div className= "imgRayer">
-            <input  type = "text"
+            <div className= "imgRayer">
+                <input  type = "text"
                     name = "userId"
                     placeholder = "User Id"
                     value = {
@@ -47,7 +47,7 @@ class Login extends Component {
                     }
                     className="userId"
                     />
-            <input  type = "password"
+                <input  type = "password"
                     name = "password"
                     placeholder = "Password"
                     value = {
@@ -59,7 +59,7 @@ class Login extends Component {
                     className="password"
                     />
 
-            <button
+                <button
                     onClick = {
                       this.handleSubmit
                     }> Sign in </button> 
