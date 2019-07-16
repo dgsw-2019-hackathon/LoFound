@@ -6,7 +6,7 @@ class Header extends Component {
         return (
             <div>
                 <Link to="/">로그인</Link>
-                <Link to="/map">지도</Link>
+                <Link to="/find">지도</Link>
                 <Link to="/register">회원가입</Link>
             </div>
         );

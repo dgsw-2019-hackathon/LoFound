@@ -1,7 +1,6 @@
-import React, {
-    Component
-} from 'react';
+import React, { Component } from 'react';
 import axios from 'axios';
+import './Login.scss';
 
 class Login extends Component {
     state = {
@@ -33,8 +32,7 @@ class Login extends Component {
 
     render() {
         return ( 
-          <div>
-            <label> ID </label> 
+          <div className= "loginForm">
             <input  type = "text"
                     name = "userId"
                     placeholder = "User Id"
@@ -44,9 +42,8 @@ class Login extends Component {
                     onChange = {
                         this.handleChange
                     }
+                    className="userId"
                     />
-
-            <label> Password </label> 
             <input  type = "password"
                     name = "password"
                     placeholder = "Password"
@@ -56,9 +53,10 @@ class Login extends Component {
                     onChange = {
                         this.handleChange
                     }
+                    className="password"
                     />
 
-            <button type = "button"
+            <button
                     onClick = {
                       this.handleSubmit
                     }> Sign in </button> 
