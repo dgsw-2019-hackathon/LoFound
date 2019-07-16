@@ -20,6 +20,7 @@ class PropertyList extends Component {
             return property.map(property => {
                 return (
                     <div key = {property.idx}>
+                        <p>member: {property.memberId}</p>
                         <p>title: {property.title}</p>
                         <img src={property.url} alt="init" />
                         <p>content: {property.content}</p>
