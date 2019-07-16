@@ -8,14 +8,14 @@ class PropertyList extends Component {
         property: [],
     };
 
-    componentDidMount(){
-        console.log("1");
-        this.getProperty();    
-        console.log("2");
+    async componentDidMount(){
+        this.getProperty();
     }
 
     getProperty = async () => {
-        const property = await axios.get('http://192.168.137.1:7777/losts/');
+        const property = await axios.get('http://192.168.137.1:7777/losts/', {
+            headers: { ['x-access-token']: localStorage.getItem('userInfo')}
+        });
         console.log(property+"앙");
         this.setState({property});
     }
