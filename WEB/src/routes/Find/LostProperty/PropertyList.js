@@ -31,7 +31,7 @@ class PropertyList extends Component {
         {
             return property.map(property => {
                 return (
-                    <PropertyItem property={property}/>
+                    <PropertyItem property={property} key={property.idx}/>
                 );
             });
         } else {

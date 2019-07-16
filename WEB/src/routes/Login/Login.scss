@@ -1,33 +1,54 @@
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap');
 
-html {
-    width: 100%;
-    height: 100%;
-}
+
 
 *{
     font-family: 'Noto Sans KR', sans-serif;
 }
 
 
-input,button {
-    width: 340px;
-    height: 50px;
-    font-size: 1.5rem;
+body {
+    margin-left: 0;
+    margin-top: 0;
+    background: url("../../static/picture/image1.jpg") no-repeat;
+    background-size: cover;
 }
 
-/*.loginForm {
+
+input,button {
+    width: 340px;
+    height: 40px;
+    font-size: 1.5rem;
+    border: solid 1.5px #6ab3e4;
+    border-radius: 2px;
+    margin-top: 1rem;
+}
+
+input{
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+button{
+    font-weight: 100;
+    width: 170px;
+    height: 50px;
+    background-color: #3498db;
+    color: #FFFFFF;
+    font-size: 1rem;
+    font-weight: 100;
+}
+
+
+
+.loginForm {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
     width: 100%;
-    height: 960px;
-    background: url('/public/picture/backgroundImage.jpg');
-
+    height: 300px;
+    margin-top: 3rem;
     button {
-        background-color: rgba( 12, 35, 245, 0.5 );
-        box-shadow: 5px 5px 3px #888888;
         transition: all 0.4s;
         -webkit-transition: all 0.4s;
         -o-transition: all 0.4s;
@@ -37,26 +58,13 @@ input,button {
             cursor: pointer;            
         }
     }
-
-    input {
-        border-radius: 7px;
-        box-shadow: 3px 3px 2px #888888;
-    }
 }
 
-
-*/
-body {
-    margin-left: 0;
-    margin-top: 0;
-    background: url("../../static/picture/image1.jpg") no-repeat;
-    background-size: cover;
-}
-
-.imgRayer {
-    // background-image: url("../../static/picture/image1.jpg");
-    background-size: cover;
-    width: 400px;
-    height: 400px;
-    background-position: center;
+.logo {
+  width: 130px;
+  height: 140px;
+  background: url('../../static/picture/logo.JPG') no-repeat;
+  margin-left: 46%;
+  background-size: cover;
+  margin-top: 4rem;
 }
