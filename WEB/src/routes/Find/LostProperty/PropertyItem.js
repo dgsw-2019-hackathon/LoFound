@@ -9,7 +9,7 @@ class PropertyItem extends Component {
                 <div key = {property.idx}>
                         <p>member: {property.memberId}</p>
                         <p>title: {property.title}</p>
-                        <img src={property.url} alt="init" />
+                        <img src={property.url} alt="img" />
                         <p>content: {property.content}</p>
                 </div>
             </div>

@@ -5,7 +5,14 @@ import PropertyItem from './PropertyItem';
 class PropertyList extends Component {
 
     state = {
-        property: [],
+        property: [
+            {
+                idx: 0,
+                title: '2',
+                memberId: '3',
+                content: "4",
+            }
+        ],
     };
 
     async componentDidMount(){
@@ -16,11 +23,22 @@ class PropertyList extends Component {
         await axios.get('http://192.168.137.1:7777/losts/', {
             headers: { 'x-access-token': localStorage.getItem('userInfo')}
         })
-        .then((property) => {
-            console.log(property+"이거야 이거");
-            this.setState({property});
+        .then((res) => {
+            res = JSON.stringify(res);
+            console.log(res);
+            console.log(res.idx);
+            console.log(res.title);
+            console.log(res.memberId);
+            console.log(res.content);
+            const { property } = this.state;
+            this.setState({
+                property: property.concat({ idx: res.idx,
+                                            title: res.title,
+                                            memberId: res.memberId,
+                                            content: res.content})
+            });
+            console.log(property+"z");
         })
-        console.log(this.state.property+"저거야 저거");
     }
 
     render() {
