@@ -13,11 +13,14 @@ class PropertyList extends Component {
     }
 
     getProperty = async () => {
-        const property = await axios.get('http://192.168.137.1:7777/losts/', {
-            headers: { ['x-access-token']: localStorage.getItem('userInfo')}
-        });
-        console.log(property+"앙");
-        this.setState({property});
+        await axios.get('http://192.168.137.1:7777/losts/', {
+            headers: { 'x-access-token': localStorage.getItem('userInfo')}
+        })
+        .then((property) => {
+            console.log(property+"이거야 이거");
+            this.setState({property});
+        })
+        console.log(this.state.property+"저거야 저거");
     }
 
     render() {

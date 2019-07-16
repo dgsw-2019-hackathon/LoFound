@@ -23,12 +23,9 @@ class Login extends Component {
               id,
               pw})
             .then((res) => {
-                console.log(res.data.token);
                 localStorage.setItem(
                     "userInfo",
-                    JSON.stringify({
-                        token: res.data.token
-                    })
+                    res.data.token
                 );
             })
             .catch((err) => {
@@ -38,7 +35,7 @@ class Login extends Component {
 
     render() {
         return ( 
-          <div className= "loginForm">
+          <div className= "imgRayer">
             <input  type = "text"
                     name = "userId"
                     placeholder = "User Id"
