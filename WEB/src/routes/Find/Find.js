@@ -116,6 +116,9 @@ class Find extends Component {
 
         if(Array.isArray(losts)){
             losts.forEach(async (element) => {
+                console.log(element);
+                console.log(element.startPlaceId);
+
                 const startPolly = await this.props.store.map.getPollygon(element.startPlaceId);
                 const endPolly = await this.props.store.map.getPollygon(element.endPlaceId);
 
