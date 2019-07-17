@@ -17,9 +17,7 @@ class PropertyList extends Component {
           headers: { 'x-access-token': localStorage.getItem('userInfo'), 'Content-Type': 'application/json' }
       })
       .then((res) => {
-        console.log('success');
         const { property } = this.state;
-        console.log(res.data.data+"이거");
         this.setState({
             property: Object.assign(property, res.data.data),
         });
