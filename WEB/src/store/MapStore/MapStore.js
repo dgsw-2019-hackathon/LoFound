@@ -9,11 +9,13 @@ class MapStore {
     @observable placeId = "";
     @observable losts = [];
 
+
    @action async getMap(){
        try {
            const data = await MapRepository.getMap();
            console.log(data);
-           this.maps = data;
+
+           this.maps = data.data;
            console.log(this.maps);
        } catch (err) {
            console.log(err);
@@ -32,10 +34,9 @@ class MapStore {
        }
    }
 
-   @action async getPlaceId(Idx){
+   @action async getPlaceId(){
        try {
-           const data = await MapRepository.getPlaceId(Idx);
-           this.placeId = data.data.data[0].place_id;
+           
        } catch (err) {
            console.log(err);
        }
