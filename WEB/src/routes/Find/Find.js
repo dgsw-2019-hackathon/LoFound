@@ -103,6 +103,17 @@ class Find extends Component {
 
         console.log(losts);
         console.log(Array.isArray(losts));
+
+        const getBoundingBox = (polygon) => {
+            let bounds = new maps.LatLngBounds();
+
+            polygon.getPath().forEach((element) => {
+                bounds.extend(element);
+            });
+
+            return bounds;
+        }
+
         if(Array.isArray(losts)){
             losts.forEach(async (element) => {
                 const startPolly = await this.props.store.map.getPollygon(element.startPlaceId);
@@ -133,8 +144,20 @@ class Find extends Component {
                         fillColor: '#FF0000',
                         fillOpacity: 0.35,
                     });
+
+                    newPolygon.getBoundingBox = getBoundingBox;
+
+                    let marker = new maps.Marker({
+                        position: newPolygon.getBoundingBox(newPolygon).getCenter(),
+                        text: 'TEST',
+                    });
+
+                    newPolygon.addListener('onMouseEnter', ()=>{
+                        console.log("test");
+                    })
         
                     newPolygon.setMap(viewMap);
+                    marker.setMap(viewMap);
                 }
                 else{
                     console.log('폴리곤 빔');
@@ -146,6 +169,10 @@ class Find extends Component {
             map,
             maps
         });
+    }
+
+    onChildMouseEnter(){
+        console.log("TEST");
     }
 
     render() {
