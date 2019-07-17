@@ -21,12 +21,16 @@ class Login extends Component {
     } = this.state;
     await axios.post('http://192.168.137.1:7777/auth/login', {
       id,
-      pw
+      pw,
     })
       .then((res) => {
         localStorage.setItem(
           "userInfo",
           res.data.token
+        );
+        localStorage.setItem(
+          "memberId",
+          id
         );
         console.log(res.data.token);
       })

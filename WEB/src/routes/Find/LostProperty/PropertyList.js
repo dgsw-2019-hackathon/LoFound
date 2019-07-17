@@ -5,24 +5,26 @@ import PropertyItem from './PropertyItem';
 class PropertyList extends Component {
 
     state = {
-        property: [],
+      property: [],
     };
 
     async componentDidMount(){
-        this.getProperty();
+      this.getProperty();
     }
 
     getProperty = async () => {
-        await axios.get('http://192.168.137.1:7777/losts/', {
-            headers: { 'x-access-token': localStorage.getItem('userInfo')}
-        })
-        .then((res) => {
-            const { property } = this.state;
-            console.log(res.data.data+"이거");
-                this.setState({
-                    property: Object.assign(property, res.data.data),
-                })
-            }); 
+      await axios.get('http://192.168.137.1:7777/losts/', {
+          headers: { 'x-access-token': localStorage.getItem('userInfo'), 'Content-Type': 'application/json' }
+      })
+      .then((res) => {
+        console.log('success');
+        const { property } = this.state;
+        console.log(res.data.data+"이거");
+        this.setState({
+            property: Object.assign(property, res.data.data),
+        });
+      })
+      .catch(err => console.error(err));
     }
 
     render() {
