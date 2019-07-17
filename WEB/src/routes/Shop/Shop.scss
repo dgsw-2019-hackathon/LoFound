@@ -1,0 +1,28 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.Shop{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    color: rgb(127, 201, 250);
+    &--storeTitle{
+        font-size: 20px;
+        font-weight: bold;
+    }
+    &--productList{
+    display: grid;
+    flex-direction: row;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+    grid-auto-rows: minmax(100px, 150px);
+    color: black;
+    }
+
+}

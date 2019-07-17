@@ -1,0 +1,14 @@
+.imgForm{
+  width: 100%;
+  height: 200px;
+  
+  .img{
+    width: 130px;
+    height: 140px;
+    background: url('../../static/picture/logo1.JPG') no-repeat;
+    margin-left: 46%;
+    background-size: cover;
+    margin-top: 4rem;
+  }
+}
+

@@ -8,6 +8,7 @@ class Header extends Component {
                 <Link to="/">로그인</Link>
                 <Link to="/find">지도</Link>
                 <Link to="/register">회원가입</Link>
+                <Link to="/shop">포인트샵</Link>
             </div>
         );
     }

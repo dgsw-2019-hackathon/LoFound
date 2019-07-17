@@ -14,32 +14,36 @@ class Login extends Component {
         })
     }
 
-    handleSubmit = async (e) => {
-        const {
-            userId: id,
-            password: pw
-        } = this.state;
-        await axios.post('http://192.168.137.1:7777/auth/login', {
-              id,
-              pw})
-            .then((res) => {
-                console.log(res.data.token);
-                localStorage.setItem(
-                    "userInfo",
-                    JSON.stringify({
-                        token: res.data.token
-                    })
-                );
-            })
-            .catch((err) => {
-                console.log(err);
-            })
-    }
+  handleSubmit = async (e) => {
+    const {
+      userId: id,
+      password: pw
+    } = this.state;
+    await axios.post('http://192.168.137.1:7777/auth/login', {
+      id,
+      pw,
+    })
+      .then((res) => {
+        localStorage.setItem(
+          "userInfo",
+          res.data.token
+        );
+        localStorage.setItem(
+          "memberId",
+          id
+        );
+        console.log(res.data.token);
+        alert("로그인 완료했습니다.");
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+  }
 
     render() {
         return ( 
-          <div className= "loginForm">
-            <input  type = "text"
+            <div className= "imgRayer">
+                <input  type = "text"
                     name = "userId"
                     placeholder = "User Id"
                     value = {
@@ -50,7 +54,7 @@ class Login extends Component {
                     }
                     className="userId"
                     />
-            <input  type = "password"
+                <input  type = "password"
                     name = "password"
                     placeholder = "Password"
                     value = {
@@ -62,7 +66,7 @@ class Login extends Component {
                     className="password"
                     />
 
-            <button
+                <button
                     onClick = {
                       this.handleSubmit
                     }> Sign in </button> 

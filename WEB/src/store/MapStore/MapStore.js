@@ -6,6 +6,9 @@ import { autobind } from 'core-decorators';
 class MapStore {
     @observable maps = {};
     @observable pollygons = [];
+    @observable placeId = "";
+    @observable losts = [];
+
 
    @action async getMap(){
        try {
@@ -19,12 +22,13 @@ class MapStore {
        }
    }
 
-   @action async getPollygon(){
+   @action async getPollygon(placeIdx){
        try {
-           const data = await MapRepository.getPollygon();
+           const data = await MapRepository.getPollygon(placeIdx);
            this.pollygons = data.data.data;
            console.log(data);
            console.log(this.pollygons);
+           return data.data.data;
        } catch (err) {
            console.log(err);
        }
@@ -33,6 +37,17 @@ class MapStore {
    @action async getPlaceId(){
        try {
            
+       } catch (err) {
+           console.log(err);
+       }
+   }
+
+   @action async getLosts(){
+       try {
+           const data = await MapRepository.getLosts();
+           console.log(data);
+           this.losts = data.data.data;
+           return data.data.data;
        } catch (err) {
            console.log(err);
        }

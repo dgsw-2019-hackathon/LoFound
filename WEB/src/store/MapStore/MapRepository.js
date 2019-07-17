@@ -30,6 +30,16 @@ class MapRepository {
           console.log(err);
       }
   }
+
+  async getLosts(){
+      try {
+          return await axios.get(`http://192.168.137.1:7777/losts`,{
+              headers: { 'x-access-token': localStorage.getItem('userInfo')}
+          })
+      } catch (err) {
+          console.log(err);
+      }
+  }
 }
 
 export default new MapRepository();
