@@ -33,6 +33,7 @@ class Login extends Component {
           id
         );
         console.log(res.data.token);
+        alert("로그인 완료했습니다.");
       })
       .catch((err) => {
         console.log(err);
